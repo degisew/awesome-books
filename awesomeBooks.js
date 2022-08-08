@@ -1,36 +1,15 @@
 const mainContainer = document.querySelector('.container');
 
 
-const books = [
-    {
-    title: 'Dertogada',
-    author: 'Yismake Worku'
-    },
-    {
-    title: 'Think and Grow Rich',
-    author: 'Napoleon Hill'
-    },
-    {
-    title: 'Think Positively',
-    author: 'Shiv Kera'
-    },
-    {
-    title: 'Kidagaa kimemuozea by Ken',
-    author: 'walibora'
-    },
-    {
-    title: 'Fikir Eskemekabir',
-    author: 'Hadis Alemayehu'
-    }
-];
+const books = [];
+
 
 books.forEach((book)=>{
     mainContainer.innerHTML =
       mainContainer.innerHTML +
       `
 <p><b>${book.title}</b></p>
-<p>${book.author}</p>
-<button type="button">Remove</button><hr>`;
+<p>${book.author}</p>`;
 });
 
 const titleInput = document.createElement('input');
