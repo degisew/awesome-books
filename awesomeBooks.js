@@ -1,6 +1,16 @@
 const mainContainer = document.querySelector('.container');
 
+class Books {
+  constructor(){
+    this.bObject = {};
+    this.list = [];
+  }
 
+  add (title, author) {
+    this.bObject = {title, author};
+    this.list.push(this.bObject);
+  }
+}
 const books = [];
 
 
