@@ -8,7 +8,7 @@ class Book {
   add(title, author) {
     this.bobject = { title, author };
     this.list.push(this.bobject);
-    ls.setItem('data', JSON.stringify(this.list));
+    localStorage.setItem('data', JSON.stringify(this.list));
   }
 
   remove(getId) {
@@ -19,7 +19,7 @@ class Book {
       if (new1.toString() === getId) {
         console.log("Remove");
         this.list.splice(new1, 1);
-        ls.setItem('data', JSON.stringify(this.list));
+        localStorage.setItem('data', JSON.stringify(this.list));
       }
 
       new1 += 1;
@@ -29,7 +29,7 @@ class Book {
   }
 }
 
-const books = new Book();
+const book = new Book();
 
 const heading = document.createElement('h1');
 heading.innerHTML = 'All awesome books';
@@ -45,8 +45,8 @@ section.appendChild(line);
 
 const anyRandomNAme = () => {
   console.log("anyRandomName");
-  console.log(books.list);
-  books.list.forEach((each, bookId) => {
+  console.log(book.list);
+  book.list.forEach((each, bookId) => {
     const list1 = document.createElement('li');
     list1.className = 'list';
 
@@ -69,7 +69,7 @@ const anyRandomNAme = () => {
 
     removeButton.addEventListener('click', function removeBtnHandler() {
       const getId = this.id;
-      books.remove(getId);
+      book.remove(getId);
       bookList.innerHTML='';
       anyRandomNAme();
     });
@@ -112,13 +112,13 @@ addButton.addEventListener('click', () => {
   const valueOfTitle = document.querySelector('.title').value;
   const valueOfAuthor = document.querySelector('.author').value;
 
-  books.add(valueOfTitle, valueOfAuthor);
+  book.add(valueOfTitle, valueOfAuthor);
     anyRandomNAme();
 });
 
-const fetchDataList = ls.getItem('data');
+const fetchDataList = localStorage.getItem('data');
 
 if (fetchDataList !== null) {
-  books.list = JSON.parse(fetchDataList);
+  book.list = JSON.parse(fetchDataList);
   anyRandomNAme();
 }
