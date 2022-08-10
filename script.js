@@ -101,12 +101,19 @@ bookAuthor.name = 'author';
 bookAuthor.placeholder = 'Author';
 inputDiv.appendChild(bookAuthor);
 
+//error div
+const errorDiv = document.createElement('div');
+errorDiv.id = 'errorMsg';
+
 const addButton = document.createElement('button');
 addButton.className = 'input add';
 addButton.innerHTML = 'Add';
 inputDiv.appendChild(addButton);
+inputDiv.appendChild(errorDiv);
 
 addButton.addEventListener('click', () => {
+
+  formValidate();  //validation method
   bookList.innerHTML='';
 
   const valueOfTitle = document.querySelector('.title').value;
@@ -114,6 +121,9 @@ addButton.addEventListener('click', () => {
 
   book.add(valueOfTitle, valueOfAuthor);
     anyRandomNAme();
+
+    // call value rest method
+    resetForm();
 });
 
 const fetchDataList = localStorage.getItem('data');
@@ -122,3 +132,23 @@ if (fetchDataList !== null) {
   book.list = JSON.parse(fetchDataList);
   anyRandomNAme();
 }
+
+let formValidate = () => {
+  //error message id
+  let msg = document.getElementById('errorMsg');
+  if(bookTitle.value === '') {
+    
+    msg.innerHTML = 'Title field cannot be blank';
+  } else if(bookAuthor.value === '') {
+   
+    msg.innerHTML = 'Title field cannot be blank';
+  } else {
+    
+     msg.innerHTML = '';
+  }
+};
+
+let resetForm = () => {
+    bookTitle.value = '';
+    bookAuthor.value = ''
+};
