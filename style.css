@@ -99,6 +99,7 @@ h2 {
 .input.add:active {
   transform: translate(6px, 6px);
   box-shadow: 0 0 0 0 black;
+}
 * {
   background: white;
 }
