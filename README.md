@@ -23,6 +23,7 @@ Run the command below from the Terminal:
 ## Authors
 
 👤 **Edith**
+👤 **Benard**
 
 
 👤 **Degisew**
