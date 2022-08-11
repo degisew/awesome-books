@@ -1,4 +1,5 @@
 const section = document.querySelector('.container');
+const mainForm = document.getElementById('book-form');
 class Book {
   constructor() {
     this.bobject = {};
@@ -12,47 +13,37 @@ class Book {
   }
 
   remove(getId) {
-    console.log("id is" + getId);
     let new1 = 0;
     while (new1 < this.list.length) {
-      console.log("new1" + new1.toString() +" and "+getId );
       if (new1.toString() === getId) {
-        console.log("Remove");
         this.list.splice(new1, 1);
         localStorage.setItem('data', JSON.stringify(this.list));
       }
 
       new1 += 1;
     }
-    console.log("Remove");
-    console.log(this.list);
   }
 }
 
 const book = new Book();
 
-const heading = document.createElement('h1');
-heading.innerHTML = 'All awesome books';
-section.appendChild(heading);
-
 const bookList = document.createElement('ul');
-const line = document.createElement('hr');
-line.className = 'underline';
+bookList.style.marginTop = '20px';
 
 bookList.className = 'book-list';
-section.appendChild(bookList);
-section.appendChild(line);
+section.prepend(bookList);
 
 const anyRandomNAme = () => {
-  console.log("anyRandomName");
-  console.log(book.list);
   book.list.forEach((each, bookId) => {
     const list1 = document.createElement('li');
     list1.className = 'list';
 
     const title = document.createElement('h2');
-    title.innerHTML = `"${each.title}" by`;
+    title.innerHTML = `"${each.title}"`;
+    const phrase = document.createElement('b');
+    phrase.textContent = "By";
     list1.appendChild(title);
+    list1.appendChild(phrase);
 
     const author = document.createElement('h2');
     author.innerHTML = each.author;
@@ -60,64 +51,42 @@ const anyRandomNAme = () => {
 
     const removeButton = document.createElement('button');
     removeButton.className = 'remove';
-    console.log(bookId);
     removeButton.id = `${bookId}`;
     removeButton.innerHTML = 'Remove';
     list1.appendChild(removeButton);
 
     bookList.appendChild(list1);
-
     removeButton.addEventListener('click', function removeBtnHandler() {
       const getId = this.id;
       book.remove(getId);
-      bookList.innerHTML='';
+      bookList.innerHTML = '';
       anyRandomNAme();
     });
   });
 };
 
-const inputDiv = document.createElement('div');
-const formHeading = document.createElement('h3');
+const formHeading = document.createElement('h1');
 formHeading.className = 'form-heading';
-formHeading.textContent = 'Add a new book';
+formHeading.textContent = 'All Awesome Books';
 
-inputDiv.className = 'input-fields';
-inputDiv.appendChild(formHeading);
-section.appendChild(inputDiv);
+section.prepend(formHeading);
 
-const bookTitle = document.createElement('input');
-bookTitle.type = 'text';
-bookTitle.name = 'title';
-bookTitle.className = 'input title';
-bookTitle.id = 'title';
-bookTitle.placeholder = 'Title';
-inputDiv.appendChild(bookTitle);
+const bookTitle = document.querySelector('#title');
 
-const bookAuthor = document.createElement('input');
-bookAuthor.type = 'text';
-bookAuthor.id = 'author';
-bookAuthor.className = 'input author';
-bookAuthor.name = 'author';
-bookAuthor.placeholder = 'Author';
-inputDiv.appendChild(bookAuthor);
+const bookAuthor = document.querySelector('#author');
 
-const addButton = document.createElement('button');
-addButton.className = 'input add';
-addButton.innerHTML = 'Add';
-inputDiv.appendChild(addButton);
-
-addButton.addEventListener('click', () => {
-  bookList.innerHTML='';
-
-  const valueOfTitle = document.querySelector('.title').value;
-  const valueOfAuthor = document.querySelector('.author').value;
-
+mainForm.addEventListener('submit', () => {
+  bookList.innerHTML = '';
+  const valueOfTitle = document.querySelector('#title').value;
+  const valueOfAuthor = document.querySelector('#author').value;
   book.add(valueOfTitle, valueOfAuthor);
-    anyRandomNAme();
+  anyRandomNAme();
+
+  // call value rest method
+  bookTitle.value = '';
+  bookAuthor.value = '';
 });
-
 const fetchDataList = localStorage.getItem('data');
-
 if (fetchDataList !== null) {
   book.list = JSON.parse(fetchDataList);
   anyRandomNAme();

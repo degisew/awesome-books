@@ -5,12 +5,43 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Awesome Books</title>
-    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="script.js" defer></script>
+    <script src="awesomeBooks.js" defer></script>
   </head>
-
-    <section class="container">
-     
+  <body>
+    <section>
+      <div class="container">
+        <h2 class="container-h2">Add New Book</h2>
+        <div class="book-display">
+        </div>
+        <form action="#" method="get" id="book-form">
+          <div>
+            <input
+              type="text"
+              placeholder="Title"
+              class="input"
+              id="title"
+              required
+              maxlength="50"
+            />
+          </div>
+          <br />
+          <div>
+            <input
+              type="text"
+              placeholder="Author"
+              class="input"
+              id="author"
+              required
+              maxlength="20"
+            />
+          </div>
+          <br />
+          <button class="add-btn" type="submit">Add</button>
+        </form>
+      </div>
     </section>
-    <script src="script.js"></script>
+   
   </body>
 </html>

@@ -1,7 +1,5 @@
- Portfolio portfolio
-
-The project is inspired by the figma microverse template 1 (https://figma.com/)
-For this portfolio website, I implemented Html And Css that includes the project details in mobile.
+# awesome-books
+A simple website created by using javascript that adds and removes books dynamically.
 
  
 ## Built With the following
@@ -18,20 +16,17 @@ To get a local copy up and running follow these simple steps.
 
 Run the command below from the Terminal:
 
-      git clone <URL> 'https://github.com/degisew/portfolio' in your terminal
-
-	  cd Desktop-version
+      git clone <URL> 'https://github.com/degisew/awesome-books' in your terminal
       
-
+      cd finalpage
 ## Authors
 
+👤 **Edith**
+👤 **Benard**
 👤 **Degisew**
-
-- Location: Ethiopia
 - GitHub: [degisew](https://github.com/degisew)
 - Twitter: [@DJ_etiya](https://twitter.com/Degisew-mengist)
 - LinkedIn: [jegisew21](https://www.linkedin.com/in/degisew-mengist-003298802)
-
 
 ## 🤝 Contributing
 
