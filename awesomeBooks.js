@@ -1,66 +1,67 @@
-const mainContainer = document.querySelector(".container");
-const innerContainer = document.querySelector(".inner-container");
-const form = document.getElementById("book-form");
+// const mainContainer = document.querySelector('.container');
+// const innerContainer = document.querySelector('.inner-container');
+const form = document.getElementById('book-form');
 
-const bookTitle = document.getElementById("title");
-const bookAuthor = document.getElementById("author");
+const bookTitle = document.getElementById('title');
+const bookAuthor = document.getElementById('author');
 
-const displayDiv = document.querySelector(".book-display");
+const displayDiv = document.querySelector('.book-display');
 
-const line = document.createElement("hr");
+const line = document.createElement('hr');
 
-form.style.marginTop = "30px";
+form.style.marginTop = '30px';
+
 let books = [];
 function addBook(bt, ba) {
   const book = {
     title: bt,
     author: ba,
   };
-  books=books.concat(book);
+  books = books.concat(book);
   const stringfied = JSON.stringify(books);
-  localStorage.setItem("data", stringfied);
+  localStorage.setItem('data', stringfied);
 }
 function displayBook() {
-  let getLSData = localStorage.getItem("data");
+  const getLSData = localStorage.getItem('data');
   if (getLSData !== null) {
-    displayDiv.innerHTML ="";
+    displayDiv.innerHTML = '';
     const parsed = JSON.parse(getLSData);
     books = parsed;
-    books.forEach((element, index) => {  //looping through the array of books.
-      displayDiv.innerHTML 
-         +=
-        `<p>${element.title}</p>
+    books.forEach((element) => {
+      // looping through the array of books.
+      displayDiv.innerHTML += `<p>${element.title}</p>
         <p>${element.author}</p>
-        <button class="btn-remove" id="${element.title}" type="button" onclick= removeBook(this.id)>Remove</button>
+        <button class="btn-remove" id="${element.title}" type="button">Remove</button>
             `;
+      // onclick = $removeBook(this.id)
       displayDiv.append(line);
     });
   } else {
     books = [];
   }
 }
-
-//executes automatically when the page is loaded.
- window.addEventListener('load', (e) => {
+// executes automatically when the page is loaded.
+window.addEventListener('load', () => {
   displayBook();
 });
 
 function removeBook(title) {
   books = books.filter((book) => book.title !== title);
   localStorage.setItem('data', JSON.stringify(books));
-  displayDiv.innerHTML ="";
+  displayDiv.innerHTML = '';
   displayBook();
-
 }
 
-form.addEventListener("submit", () => {
+displayDiv.addEventListener('click', (e) => {
+  removeBook(e.target.id);
+});
+
+form.addEventListener('submit', () => {
   const title = bookTitle.value;
   const author = bookAuthor.value;
   addBook(title, author);
-  displayDiv.innerHTML ="";
+  displayDiv.innerHTML = '';
   displayBook();
-  bookTitle.value = "";
-  bookAuthor.value = "";
+  bookTitle.value = '';
+  bookAuthor.value = '';
 });
-
-
