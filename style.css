@@ -1,3 +1,106 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-top: 0.75rem;
+}
+
+h2 {
+  border-top: 5px solid black;
+  padding-top: 20px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 2.25rem;
+  align-items: center;
+  padding: 0 1rem;
+  width: 100%;
+}
+
+.book-list {
+  list-style: none;
+  margin: 0;
+  width: 100%;
+  padding: 10px;
+  border: 4px solid black;
+  position: relative;
+  max-height: 15rem;
+  overflow-y: scroll;
+}
+
+.list {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 7px;
+  padding: 1rem;
+}
+
+.list:nth-child(odd) {
+  background-color: rgba(128, 128, 128, 0.6);
+}
+
+.list h2,
+.list button {
+  font-size: 22px;
+  font-weight: normal;
+  margin: 0;
+}
+
+.list button {
+  border: 3px solid black;
+  margin-left: auto;
+  padding: 0.25rem 0.6rem;
+  box-shadow: 6px 6px 2px 0 black;
+}
+
+.list button:active {
+  transform: translate(6px, 6px);
+  box-shadow: 0 0 0 0 black;
+}
+
+.form-heading {
+  font-size: 2.75rem;
+  text-align: center;
+}
+
+.input {
+  margin-bottom: 0.8rem;
+  padding: 0.25rem 0.6rem;
+  height: 2.6rem;
+  width: 100%;
+  border: 3px solid black;
+}
+
+.add-btn {
+  width: 80px;
+  align-self: flex-end;
+  height: max-content;
+  float: right;
+  font-weight: bold;
+  padding: 0.4rem 1rem;
+  border: 3px solid black;
+  box-shadow: 4px 4px 2px 0 black;
+}
+
+.input::placeholder {
+  color: black;
+  font-weight: bold;
+}
+
+.input.add:active {
+  transform: translate(6px, 6px);
+  box-shadow: 0 0 0 0 black;
+}
+
 * {
   background: white;
 }

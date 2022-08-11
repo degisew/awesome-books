@@ -17,8 +17,6 @@ To get a local copy up and running follow these simple steps.
 Run the command below from the Terminal:
 
       git clone <URL> 'https://github.com/degisew/awesome-books' in your terminal
-
-	  cd version1.0.0
       
 ## Authors
 
