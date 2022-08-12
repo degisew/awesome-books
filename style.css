@@ -16,10 +16,6 @@ section {
   display: block;
 }
 
-/* li {
-  list-style-type: none;
-} */
-
 h1 {
   font-size: 3rem;
   margin-top: 0.75rem;
@@ -64,8 +60,6 @@ h1 {
 }
 
 .container {
-  /* display: flex;
-  flex-direction: column; */
   gap: 2.25rem;
 
   /* background-color: yellow; */
