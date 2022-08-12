@@ -1,5 +1,5 @@
 # awesome-books
-A simple website created by using javascript that adds and removes books dynamically.
+A simple website that adds and removes books dynamically. This project is aimed to implement SPA.
 
  
 ## Built With the following
@@ -18,6 +18,7 @@ Run the command below from the Terminal:
 
       git clone <URL> 'https://github.com/degisew/awesome-books' in your terminal
       
+      cd finalpage
 ## Authors
 
 👤 **Edith**
