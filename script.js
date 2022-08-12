@@ -1,5 +1,56 @@
 const section = document.querySelector('.container');
 const mainForm = document.getElementById('book-form');
+const displayPage = document.querySelector('.display-page');
+const currentDate = document.createElement('div');
+currentDate.id = 'displayDateTime';
+const navBar = document.createElement('ul');
+const navMenuDiv = document.createElement('div');
+navMenuDiv.className = 'nav-menu-div';
+navBar.className = 'nav-bar';
+const navHeading = document.createElement('h2');
+navHeading.textContent = 'Awesome Books';
+navHeading.className = 'nav-title';
+const listMenu = document.createElement('li');
+listMenu.id = 'first-list';
+const listLink = document.createElement('a');
+listLink.textContent = 'List';
+listLink.className = 'menu-link';
+listMenu.append(listLink);
+navMenuDiv.append(listMenu);
+
+const addMenu = document.createElement('li');
+addMenu.id = 'second-list';
+const addLink = document.createElement('a');
+addLink.textContent = 'Add Book';
+addLink.className = 'menu-link';
+addMenu.append(addLink);
+navMenuDiv.append(addMenu);
+
+const contactMenu = document.createElement('li');
+contactMenu.id = 'third-list';
+const contactLink = document.createElement('a');
+contactLink.textContent = 'Contact';
+contactLink.className = 'menu-link';
+contactMenu.append(contactLink);
+navMenuDiv.append(contactMenu);
+navBar.append(navMenuDiv);
+navBar.prepend(navHeading);
+
+const today = new Date();
+const date = `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`;
+const x = today.getHours() < 12 ? 'am' : 'pm';
+const time = `${today.getHours()
+}:${
+  today.getMinutes()
+}:${
+  today.getSeconds()
+} ${
+  x}`;
+
+const dateTime = `${date} ${time}`;
+
+currentDate.innerHTML = dateTime;
+
 class Book {
   constructor() {
     this.bobject = {};
@@ -31,8 +82,7 @@ const bookList = document.createElement('ul');
 bookList.style.marginTop = '20px';
 
 bookList.className = 'book-list';
-section.prepend(bookList);
-
+displayPage.append(bookList);
 const anyRandomNAme = () => {
   book.list.forEach((each, bookId) => {
     const list1 = document.createElement('li');
@@ -41,7 +91,7 @@ const anyRandomNAme = () => {
     const title = document.createElement('h2');
     title.innerHTML = `"${each.title}"`;
     const phrase = document.createElement('b');
-    phrase.textContent = "By";
+    phrase.textContent = 'By';
     list1.appendChild(title);
     list1.appendChild(phrase);
 
@@ -65,11 +115,39 @@ const anyRandomNAme = () => {
   });
 };
 
-const formHeading = document.createElement('h1');
-formHeading.className = 'form-heading';
-formHeading.textContent = 'All Awesome Books';
+// SPA implementation
 
-section.prepend(formHeading);
+function listBook() {
+  displayPage.style.display = 'flex';
+  displayPage.style.flexDirection = 'column';
+  document.querySelector('.add-page').style.display = 'none';
+  document.querySelector('.contact-me').style.display = 'none';
+}
+window.addEventListener('load', () => {
+  listBook();
+});
+listLink.addEventListener('click', () => {
+  listBook();
+});
+addLink.addEventListener('click', (e) => {
+  e.preventDefault();
+  displayPage.style.display = 'none';
+  document.querySelector('.add-page').style.display = 'flex';
+  document.querySelector('.contact-me').style.display = 'none';
+});
+
+contactLink.addEventListener('click', (e) => {
+  e.preventDefault();
+  displayPage.style.display = 'none';
+  document.querySelector('.add-page').style.display = 'none';
+  document.querySelector('.contact-me').style.display = 'flex';
+});
+
+// const formHeading = document.createElement('h1');
+// formHeading.className = 'form-heading';
+// formHeading.textContent = 'All Awesome Books';
+
+// section.prepend(formHeading);
 
 const bookTitle = document.querySelector('#title');
 
@@ -91,3 +169,5 @@ if (fetchDataList !== null) {
   book.list = JSON.parse(fetchDataList);
   anyRandomNAme();
 }
+section.prepend(currentDate);
+section.prepend(navBar);
