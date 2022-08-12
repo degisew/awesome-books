@@ -25,6 +25,7 @@ Run the command below from the Terminal:
 👤 **Benard**
 👤 **Degisew**
 - GitHub: [degisew](https://github.com/degisew)
+- GitHub: [vigehi](https://github.com/vigehi)
 - Twitter: [@DJ_etiya](https://twitter.com/Degisew-mengist)
 - LinkedIn: [jegisew21](https://www.linkedin.com/in/degisew-mengist-003298802)
 
