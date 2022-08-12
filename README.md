@@ -21,9 +21,7 @@ Run the command below from the Terminal:
       cd finalpage
 
       [demo]()
-      ![image 1](Screenshot%20from%202022-08-12%2012-09-47.png)
-      ![image 2](Screenshot%20from%202022-08-12%2012-09-58.png)
-      ![Image 3](Screenshot%20from%202022-08-12%2012-10-28.png)
+
 ## Authors
 
 👤 **Edith**
@@ -36,6 +34,9 @@ Run the command below from the Terminal:
 
 ## 🤝 Contributing
 
+![image 1](Screenshot%20from%202022-08-12%2012-09-47.png)
+![image 2](Screenshot%20from%202022-08-12%2012-09-58.png)
+![Image 3](Screenshot%20from%202022-08-12%2012-10-28.png)
 Contributions, issues, and feature requests are welcome!
 
 Feel free to check the [issues page](https://github.com/degisew/portfolio/issues).
